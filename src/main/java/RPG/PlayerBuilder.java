@@ -55,12 +55,6 @@ public class PlayerBuilder extends CharacterBuilder {
     }
 
     @Override
-    protected void setArmor() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
     protected void setSpecialTraits() {
         player.setGold(0);
     }

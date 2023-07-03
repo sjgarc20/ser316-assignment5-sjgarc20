@@ -90,10 +90,8 @@ public final class Logic {
     public void goToShop() {
         System.out.println("Welcome to the shop, what would you like to do?");
         System.out.println("1: Reforge Weapon");
-        System.out.println("2: Upgrade Status Effects");
-        System.out.println("3: Equip Armor");
-        System.out.println("4: Exit dungeon");
-        System.out.println("5: Continue your adventure");
+        System.out.println("2: Exit dungeon");
+        System.out.println("3: Continue your adventure");
         
         try {
             int input = UserInput.getSelection();
@@ -101,17 +99,11 @@ public final class Logic {
                 reforgeWeapon();
                 goToShop();
             } else if (input == 2) {
-                upgradeStatusEffects();
-                goToShop();
-            } else if (input == 3) {
-                equipArmor();
-                goToShop();
-            } else if (input == 4) {
                 Game.setCurrentFloor(0);
-            } else if (input == 5) {
+            } else if (input == 3) {
                 System.out.println("Good luck, adventurer!");
             } else {
-                throw new IOException("Invalid Input, must be 1, 2, 3, 4, or 5");
+                throw new IOException("Invalid Input, must be 1, 2, or 3");
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -212,14 +204,6 @@ public final class Logic {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-    }
-    
-    private void upgradeStatusEffects() {
-        
-    }
-    
-    private void equipArmor() {
-        
     }
     
     private void levelUp() {

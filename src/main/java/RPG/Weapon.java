@@ -8,7 +8,6 @@ public class Weapon {
     private int baseDamage;
     private int baseSpeed;
     private String name;
-    private StatusEffect statusEffect;
     
     
     /**
@@ -61,10 +60,6 @@ public class Weapon {
     
     public void setName(String name) {
         this.name = name;
-    }
-    
-    public StatusEffect getStatusEffect() {
-        return statusEffect;
     }
     
     public int getLevel() {

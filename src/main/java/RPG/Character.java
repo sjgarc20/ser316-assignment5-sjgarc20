@@ -5,7 +5,6 @@ public class Character {
     private int currentHealth;
     private int level;
     private Weapon weapon;
-    private Armor armor;
     private int experience;
     private int gold;
     private String name;
@@ -56,14 +55,6 @@ public class Character {
     
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
-    }
-    
-    public Armor getArmor() {
-        return armor;
-    }
-    
-    public void setArmor(Armor armor) {
-        this.armor = armor;
     }
     
     public int getExperience() {

@@ -32,12 +32,6 @@ public class UndeadBuilder extends CharacterBuilder {
     }
 
     @Override
-    protected void setArmor() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
     protected void setSpecialTraits() {
         if (Game.getCurrentFloor() % 10 == 5) {
             undead.setExperience(Game.getCurrentFloor() * 100);

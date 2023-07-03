@@ -32,11 +32,6 @@ public class BanditBuilder extends CharacterBuilder {
     }
 
     @Override
-    protected void setArmor() {
-        
-    }
-
-    @Override
     protected void setSpecialTraits() {
         if (Game.getCurrentFloor() % 10 == 5) {
             bandit.setExperience(Game.getCurrentFloor() * 100);

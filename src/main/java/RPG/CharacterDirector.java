@@ -17,7 +17,6 @@ public class CharacterDirector {
         characterBuilder.setMaxHealth();
         characterBuilder.setLevel();
         characterBuilder.setWeapon();
-        characterBuilder.setArmor();
         characterBuilder.setSpecialTraits();
     }
 }
