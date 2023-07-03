@@ -75,6 +75,10 @@ public class Weapon {
         this.level = newLevel;
     }
     
+    public void addLevel(int level) {
+        this.level += level;
+    }
+    
     public int getBaseDamage() {
         return baseDamage;
     }

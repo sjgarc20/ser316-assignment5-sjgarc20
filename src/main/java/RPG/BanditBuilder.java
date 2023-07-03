@@ -6,32 +6,43 @@ public class BanditBuilder extends CharacterBuilder {
     
     @Override
     protected void setMaxHealth() {
-        int health = RandomNumberGenerator.getRandomIntRange(0, 0);
-        bandit.setMaxHealth(0);
+        int health = RandomNumberGenerator.getRandomIntRange(Game.getCurrentFloor(), Game.getCurrentFloor() * 2);
+        if (Game.getCurrentFloor() % 10 == 5) {
+            health = health * 2;
+        } else if (Game.getCurrentFloor() % 10 == 0) {
+            health = health * 3;
+        }
+        bandit.setMaxHealth(health);
     }
 
     @Override
     protected void setLevel() {
-        // TODO Auto-generated method stub
-        
+        bandit.setLevel(Game.getCurrentFloor());
     }
 
     @Override
     protected void setWeapon() {
-        // TODO Auto-generated method stub
-        
+        WeaponDirector weaponDirector = new WeaponDirector();
+        WeaponBuilder daggerBuilder = new DaggerBuilder();
+        weaponDirector.makeWeapon(daggerBuilder);
+        Weapon dagger = daggerBuilder.getWeapon();
+        bandit.setWeapon(dagger);
     }
 
     @Override
     protected void setArmor() {
-        // TODO Auto-generated method stub
         
     }
 
     @Override
     protected void setSpecialTraits() {
-        // TODO Auto-generated method stub
-        
+        if (Game.getCurrentFloor() % 10 == 5) {
+            bandit.setExperience(Game.getCurrentFloor() * 100);
+        } else if (Game.getCurrentFloor() % 10 == 0) {
+            bandit.setExperience(Game.getCurrentFloor() * 200);
+        } else {
+            bandit.setExperience(Game.getCurrentFloor() * 50);
+        }
     }
 
     @Override

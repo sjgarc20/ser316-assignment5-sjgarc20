@@ -1,30 +1,30 @@
 package rpg;
 
-public enum Game {
+public final class Game {
 
-    INSTANCE(0);
+    private static Game INSTANCE;
     
-    private int currentFloor;
+    private static int currentFloor = 0;
     
-    private Game(int floor) {
-        this.currentFloor = 0;
+    private Game() {
     }
     
-    public Game getInstance() {
+    public static Game getInstance() {
+        if(INSTANCE == null) {
+            INSTANCE = new Game();
+        }
         return INSTANCE;
     }
 
-    public int getCurrentFloor() {
+    public static int getCurrentFloor() {
         return currentFloor;
     }
 
-    public void advanceFloor() {
-        this.currentFloor = this.currentFloor + 1;
+    public static void advanceFloor() {
+        Game.currentFloor = Game.currentFloor + 1;
     }
     
-    public void setCurrentFloor(int currentFloor) {
-        this.currentFloor = currentFloor;
+    public static void setCurrentFloor(int currentFloor) {
+        Game.currentFloor = currentFloor;
     }
-    
-    
 }

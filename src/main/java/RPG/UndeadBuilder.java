@@ -6,20 +6,27 @@ public class UndeadBuilder extends CharacterBuilder {
     
     @Override
     protected void setMaxHealth() {
-        // TODO Auto-generated method stub
-        
+        int health = RandomNumberGenerator.getRandomIntRange(Game.getCurrentFloor(), (int) (Game.getCurrentFloor() * 1.5));
+        if (Game.getCurrentFloor() % 10 == 5) {
+            health = health * 3;
+        } else if (Game.getCurrentFloor() % 10 == 0) {
+            health = health * 10;
+        }
+        undead.setMaxHealth(health);
     }
 
     @Override
     protected void setLevel() {
-        // TODO Auto-generated method stub
-        
+        undead.setLevel(Game.getCurrentFloor());
     }
 
     @Override
     protected void setWeapon() {
-        // TODO Auto-generated method stub
-        
+        WeaponDirector weaponDirector = new WeaponDirector();
+        WeaponBuilder daggerBuilder = new DaggerBuilder();
+        weaponDirector.makeWeapon(daggerBuilder);
+        Weapon dagger = daggerBuilder.getWeapon();
+        undead.setWeapon(dagger);
     }
 
     @Override
@@ -30,8 +37,13 @@ public class UndeadBuilder extends CharacterBuilder {
 
     @Override
     protected void setSpecialTraits() {
-        // TODO Auto-generated method stub
-        
+        if (Game.getCurrentFloor() % 10 == 5) {
+            undead.setExperience(Game.getCurrentFloor() * 100);
+        } else if (Game.getCurrentFloor() % 10 == 0) {
+            undead.setExperience(Game.getCurrentFloor() * 200);
+        } else {
+            undead.setExperience(Game.getCurrentFloor() * 50);
+        }
     }
     
     @Override

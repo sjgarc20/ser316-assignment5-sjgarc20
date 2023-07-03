@@ -25,12 +25,25 @@ public class Character {
         this.currentHealth = currentHealth;
     }
     
+    public void takeDamage(int damageTaken) {
+        this.currentHealth = this.currentHealth - (damageTaken);
+    }
+    
     public int getLevel() {
         return level;
     }
     
     public void setLevel(int level) {
         this.level = level;
+    }
+    
+    public boolean levelUp() {
+        int experienceToLevelUp = (level + 1) * 100;
+        if (experience >= experienceToLevelUp) {
+            experience -= experienceToLevelUp;
+            return true;
+        }
+        return false;
     }
     
     public Weapon getWeapon() {
@@ -55,6 +68,10 @@ public class Character {
     
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+    
+    public void addExperience(int experience) {
+        this.experience += experience;
     }
     
     public int getGold() {
