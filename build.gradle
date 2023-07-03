@@ -24,7 +24,7 @@ jar {
     }
 }*/
 
-mainClassName = 'main.java.RPG.Main' // TODO: change to actual main class later
+mainClassName = 'main.java.rpg.Main' // TODO: change to actual main class later
 
 repositories {
     // Use jcenter for resolving dependencies.
@@ -87,34 +87,3 @@ spotbugs {
  showProgress = true
  effort = 'max'
 }
-
-/*
-spotbugs {
-    toolVersion = '4.7.3'
-}
-
-tasks.withType(com.github.spotbugs.SpotBugsTask) {
-    reports {
-        xml.enable = false
-        html.enable = true
-    }
-}
-*/
-/*
-[spotbugsMain, spotbugsTest].each { task ->
-    task.configure {
-        reports {
-            html {
-                enabled = true
-                stylesheet = 'fancy-hist.xsl'
-            }
-        }
-    }
-}
-spotbugs {
- toolVersion = '4.7.3'
- ignoreFailures = true
- showProgress = true
- effort = 'max'
-}
-*/

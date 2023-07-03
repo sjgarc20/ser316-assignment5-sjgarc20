@@ -1,4 +1,4 @@
-package RPG;
+package rpg;
 
 public class MonsterBuilder extends CharacterBuilder {
 

@@ -1,4 +1,4 @@
-package RPG;
+package rpg;
 
 public class BanditBuilder extends CharacterBuilder {
 

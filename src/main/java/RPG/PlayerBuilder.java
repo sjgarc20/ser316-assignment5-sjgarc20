@@ -1,4 +1,4 @@
-package RPG;
+package rpg;
 
 import java.io.IOException;
 
