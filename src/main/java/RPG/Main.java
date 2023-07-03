@@ -6,13 +6,16 @@ import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Enter something: ");
-        try {
-            System.out.println(getSelection());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        
+        CharacterDirector director = new CharacterDirector();
+        CharacterBuilder playerBuilder = new PlayerBuilder();
+        director.makeCharacter(playerBuilder);
+        Character player = playerBuilder.getCharacter();
+        System.out.println(player.getCurrentHealth());
+        System.out.println(player.getLevel());
+        System.out.println(player.getExperience());
+        System.out.println(player.getWeapon().getName());
+        System.out.println(player.getGold());
     }
     
     public static int getSelection() throws IOException {

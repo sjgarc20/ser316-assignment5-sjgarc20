@@ -63,4 +63,9 @@ public class PlayerBuilder extends CharacterBuilder {
         player.setGold(0);
     }
 
+    @Override
+    protected Character getCharacter() {
+        return player;
+    }
+
 }

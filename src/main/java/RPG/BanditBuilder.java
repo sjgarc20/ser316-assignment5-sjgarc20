@@ -2,10 +2,12 @@ package rpg;
 
 public class BanditBuilder extends CharacterBuilder {
 
+    Character bandit = new Character();
+    
     @Override
     protected void setMaxHealth() {
-        // TODO Auto-generated method stub
-        
+        int health = RandomNumberGenerator.getRandomIntRange(0, 0);
+        bandit.setMaxHealth(0);
     }
 
     @Override
@@ -30,6 +32,11 @@ public class BanditBuilder extends CharacterBuilder {
     protected void setSpecialTraits() {
         // TODO Auto-generated method stub
         
+    }
+
+    @Override
+    protected Character getCharacter() {
+        return bandit;
     }
 
 }

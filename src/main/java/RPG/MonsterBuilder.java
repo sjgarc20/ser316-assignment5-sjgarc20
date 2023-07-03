@@ -2,6 +2,8 @@ package rpg;
 
 public class MonsterBuilder extends CharacterBuilder {
 
+    Character monster = new Character();
+    
     @Override
     protected void setMaxHealth() {
         // TODO Auto-generated method stub
@@ -30,6 +32,11 @@ public class MonsterBuilder extends CharacterBuilder {
     protected void setSpecialTraits() {
         // TODO Auto-generated method stub
         
+    }
+    
+    @Override
+    protected Character getCharacter() {
+        return monster;
     }
 
 }
