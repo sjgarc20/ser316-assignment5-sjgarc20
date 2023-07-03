@@ -11,13 +11,28 @@ public class Weapon {
     private StatusEffect statusEffect;
     
     
-    
+    /**
+     * Calculates total weapon damage.
+     * Starts with baseDamage * level,
+     * then total is multiplied by the weapon-specific multiplier
+     *  ex. Sword damage multiplier is 2, and if the damage is 10
+     *  then the damage after the multiplier will be 20
+     * @return total weapon damage
+     */
     public int getTotalWeaponDamage() {
         int totalDamage = baseDamage * level;
         totalDamage = (int) (totalDamage * damageMultiplier);
         return totalDamage;
     }
     
+    /**
+     * Calculates total weapon speed.
+     * Starts with baseSpeed * level
+     * then total is multiplied by the weapon-specific multiplier
+     *  ex. Spear speed multiplier is 1.5, and if the damage is 10
+     *  then the Speed after the multiplier will be 15
+     * @return total weapon speed
+     */
     public int getTotalWeaponSpeed() {
         int totalSpeed = baseSpeed * level;
         totalSpeed = (int) (totalSpeed * speedMultiplier);

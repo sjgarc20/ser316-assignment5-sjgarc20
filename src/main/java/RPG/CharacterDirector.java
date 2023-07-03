@@ -9,6 +9,10 @@ package rpg;
  *
  */
 public class CharacterDirector {
+    /**
+     * Directs the building of all characters, players and npc's.
+     * @param characterBuilder character builder object
+     */
     public void makeCharacter(CharacterBuilder characterBuilder) {
         characterBuilder.setMaxHealth();
         characterBuilder.setLevel();

@@ -20,9 +20,11 @@ public class PlayerBuilder extends CharacterBuilder {
 
     @Override
     protected void setWeapon() {
-        System.out.println("It's time to pick your starting weapon. You'll be able to change this later, but for a cost.");
+        System.out.println("It's time to pick your starting weapon. "
+                + "You'll be able to change this later, but for a cost.");
         System.out.println("1: Sword, does heavy damage, albeit not very fast");
-        System.out.println("2: Dagger, great for a fast attacking style, but the damage is not very high");
+        System.out.println("2: Dagger, great for a fast attacking style, "
+                + "but the damage is not very high");
         System.out.println("3: Spear, a balance between attacking power and speed");
         System.out.println("Please input the number of the weapon you would like to choose.");
         

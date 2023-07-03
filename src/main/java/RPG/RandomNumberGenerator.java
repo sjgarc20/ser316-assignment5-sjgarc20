@@ -14,6 +14,11 @@ public final class RandomNumberGenerator {
     private static RandomNumberGenerator INSTANCE;
     private static Random generator;
     
+    /**
+     * Checks if instance already exists, and creates a new instance.
+     * if it doesn't
+     * @return instance of RandomNumberGenerator
+     */
     public static RandomNumberGenerator getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new RandomNumberGenerator();

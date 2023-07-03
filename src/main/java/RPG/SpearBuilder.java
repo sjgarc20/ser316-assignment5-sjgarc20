@@ -1,6 +1,6 @@
 package rpg;
 
-public class SpearBuilder extends WeaponBuilder{
+public class SpearBuilder extends WeaponBuilder {
 
     Weapon spear = new Weapon();
     
