@@ -7,7 +7,7 @@ public enum Game {
     private int currentFloor;
     
     private Game(int floor) {
-        this.setCurrentFloor(floor);
+        this.currentFloor = 0;
     }
     
     public Game getInstance() {
@@ -18,6 +18,10 @@ public enum Game {
         return currentFloor;
     }
 
+    public void advanceFloor() {
+        this.currentFloor = this.currentFloor + 1;
+    }
+    
     public void setCurrentFloor(int currentFloor) {
         this.currentFloor = currentFloor;
     }

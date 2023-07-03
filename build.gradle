@@ -9,7 +9,7 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
-    id "com.github.spotbugs" version "4.5.1"
+    id "com.github.spotbugs" version "5.0.14"
     id "checkstyle"
 }
 
@@ -33,6 +33,7 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
+    
 }
 
 // Configure Checkstyle
@@ -57,11 +58,50 @@ checkstyle {
 // Configure SpotBugs
 
 // To generate an HTML report instead of XML
+
 spotbugsMain {
  reports {
      xml.enabled = false
      html.enabled = true
  }
+}
+
+spotbugsTest {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+spotbugs {
+ toolVersion = '4.7.3'
+ ignoreFailures = true
+ showProgress = true
+ effort = 'max'
+}
+
+/*
+spotbugs {
+    toolVersion = '4.7.3'
+}
+
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+    reports {
+        xml.enable = false
+        html.enable = true
+    }
+}
+*/
+/*
+[spotbugsMain, spotbugsTest].each { task ->
+    task.configure {
+        reports {
+            html {
+                enabled = true
+                stylesheet = 'fancy-hist.xsl'
+            }
+        }
+    }
 }
 spotbugs {
  toolVersion = '4.7.3'
@@ -69,3 +109,4 @@ spotbugs {
  showProgress = true
  effort = 'max'
 }
+*/
