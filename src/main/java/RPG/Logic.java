@@ -20,6 +20,10 @@ public final class Logic {
     private Logic() {
     }
     
+    /**
+     * Generates singleton instance of Logic if it doesn't already exist.
+     * @return instance of Logic
+     */
     public static Logic getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new Logic();
@@ -28,6 +32,11 @@ public final class Logic {
         return INSTANCE;
     }
     
+    /**
+     * Initializes game play.
+     * generates player character using playerBuilder pattern.
+     * Enters gameplay loop by calling levelController()
+     */
     public void init() {
         CharacterDirector director = new CharacterDirector();
         CharacterBuilder playerBuilder = new PlayerBuilder();
@@ -36,6 +45,12 @@ public final class Logic {
         levelController();
     }
     
+    /**
+     * generates unique enemy per each floor.
+     * Floors 1-10 = bandits
+     * Floors 11-20 = monsters
+     * Floors 21-30 = undead
+     */
     public void generateEnemy() {
         CharacterDirector director = new CharacterDirector();
         CharacterBuilder enemyBuilder;
@@ -51,6 +66,12 @@ public final class Logic {
         enemy = enemyBuilder.getCharacter();
     }
     
+    /**
+     * Handles what shows up on each floor.
+     * 0th floor means the player hasn't entered the dungeon yet.
+     * Allows the player to go to the shop after every 5th floor, not including floor 0 or 30.
+     * Generates an enemy and has the player battle said enemy each floor.
+     */
     public void levelController() {
         while (Game.getCurrentFloor() < 31) {
             if (Game.getCurrentFloor() == 0) {
@@ -87,6 +108,12 @@ public final class Logic {
         winningSequence();
     }
     
+    /**
+     * Handles player going to the shop.
+     * allows player to reforge their weapon into one of the other variants,
+     * exit the dungeon, starting back at floor 1,
+     * or continue through the dungeon.
+     */
     public void goToShop() {
         System.out.println("Welcome to the shop, what would you like to do?");
         System.out.println("1: Reforge Weapon");
@@ -114,6 +141,11 @@ public final class Logic {
         
     }
     
+    /**
+     * Facilitates battle between player and enemy.
+     * characters repeatedly attack each other until either
+     * of their health drops to 0 or lower.
+     */
     public void battleLoop() {
         playerTick = player.getWeapon().getTotalWeaponSpeed();
         enemyTick = enemy.getWeapon().getTotalWeaponSpeed();
@@ -153,7 +185,8 @@ public final class Logic {
             player.addExperience(enemy.getExperience());
             Game.advanceFloor();
         } else {
-            System.out.println("You were defeated by level "  + enemy.getLevel() + " " + enemy.getName());
+            System.out.println("You were defeated by level "  + enemy.getLevel() 
+                + " " + enemy.getName());
             System.out.println("You lost " + player.getGold() + " Gold");
             Game.setCurrentFloor(0);
             player.setGold(0);

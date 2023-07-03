@@ -7,7 +7,8 @@ public class UndeadBuilder extends CharacterBuilder {
     @Override
     protected void setMaxHealth() {
         RandomNumberGenerator random = RandomNumberGenerator.getInstance();
-        int health = random.getRandomIntRange(Game.getCurrentFloor(), (int) (Game.getCurrentFloor() * 1.5));
+        int health = random.getRandomIntRange(Game.getCurrentFloor(), 
+                (int) (Game.getCurrentFloor() * 1.5));
         if (Game.getCurrentFloor() % 10 == 5) {
             health = health * 3;
         } else if (Game.getCurrentFloor() % 10 == 0) {

@@ -1,5 +1,11 @@
 package rpg;
 
+/**
+ * Singleton of Game class, handles important global data
+ * of the game for use in the Logic class.
+ * @author Sam
+ *
+ */
 public final class Game {
 
     private static Game INSTANCE;
@@ -9,8 +15,12 @@ public final class Game {
     private Game() {
     }
     
+    /**
+     * Creates an instance of Game if it does not already exist.
+     * @return reference to instance of Game
+     */
     public static Game getInstance() {
-        if(INSTANCE == null) {
+        if (INSTANCE == null) {
             INSTANCE = new Game();
         }
         return INSTANCE;

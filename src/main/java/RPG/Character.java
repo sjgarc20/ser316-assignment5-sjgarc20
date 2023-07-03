@@ -37,6 +37,13 @@ public class Character {
         this.level = level;
     }
     
+    /**
+     * Levels up the character.
+     * Subtracts experience and increments level only if there's enough
+     * experience to level up. Then it calculates the new maxHealth value
+     * and sets the current Health value to it
+     * @return true if character leveled up, false otherwise
+     */
     public boolean levelUp() {
         int experienceToLevelUp = (level + 1) * 100;
         if (experience >= experienceToLevelUp) {

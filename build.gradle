@@ -7,7 +7,6 @@
  */
 
 plugins {
-    // Apply the java-library plugin to add support for Java Library
     id 'java-library'
     id "com.github.spotbugs" version "5.0.14"
     id "checkstyle"
@@ -24,7 +23,7 @@ jar {
     }
 }*/
 
-mainClassName = 'main.java.rpg.Main' // TODO: change to actual main class later
+mainClassName = 'main.java.Library' // TODO: change to actual main class later
 
 repositories {
     // Use jcenter for resolving dependencies.
@@ -73,14 +72,6 @@ spotbugsMain {
      html.enabled = true
  }
 }
-
-spotbugsTest {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
-}
-
 spotbugs {
  toolVersion = '4.7.3'
  ignoreFailures = true

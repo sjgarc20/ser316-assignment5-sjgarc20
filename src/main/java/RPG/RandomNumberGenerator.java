@@ -17,6 +17,7 @@ public final class RandomNumberGenerator {
     private RandomNumberGenerator() {
         generator = new Random(SEED);
     }
+    
     /**
      * Checks if instance already exists, and creates a new instance.
      * if it doesn't
