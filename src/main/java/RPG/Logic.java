@@ -2,12 +2,31 @@ package rpg;
 
 import java.io.IOException;
 
-public class Logic {
+/**
+ * Singleton object, since we only need one instance of the logic to run the game.
+ * @author Sam
+ *
+ */
+public final class Logic {
+    
+    private static Logic INSTANCE;
+    
     private Character player;
     private Character enemy;
     private int maxTick;
     private int playerTick;
     private int enemyTick;
+    
+    private Logic() {
+    }
+    
+    public static Logic getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Logic();
+        }
+        
+        return INSTANCE;
+    }
     
     public void init() {
         CharacterDirector director = new CharacterDirector();
@@ -35,6 +54,7 @@ public class Logic {
     public void levelController() {
         while (Game.getCurrentFloor() < 31) {
             if (Game.getCurrentFloor() == 0) {
+                levelUp();
                 System.out.println("Are you ready to begin your dive into the dungeon?");
                 System.out.println("1: Enter the shop");
                 System.out.println("2: Show me my stats");
@@ -192,5 +212,13 @@ public class Logic {
     
     private void equipArmor() {
         
+    }
+    
+    private void levelUp() {
+        while (player.levelUp()) {
+            System.out.println("Level Up!");
+            System.out.println("New level: " + player.getLevel());
+            player.getWeapon().addLevel(1);
+        }
     }
 }

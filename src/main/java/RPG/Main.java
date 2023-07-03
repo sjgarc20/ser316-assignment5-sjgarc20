@@ -11,15 +11,17 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        CharacterDirector director = new CharacterDirector();
-        CharacterBuilder playerBuilder = new PlayerBuilder();
-        director.makeCharacter(playerBuilder);
-        Character player = playerBuilder.getCharacter();
-        System.out.println(player.getCurrentHealth());
-        System.out.println(player.getLevel());
-        System.out.println(player.getExperience());
-        System.out.println(player.getWeapon().getName());
-        System.out.println(player.getGold());
+        Logic logic = Logic.getInstance();
+        logic.init();
+//        CharacterDirector director = new CharacterDirector();
+//        CharacterBuilder playerBuilder = new PlayerBuilder();
+//        director.makeCharacter(playerBuilder);
+//        Character player = playerBuilder.getCharacter();
+//        System.out.println(player.getCurrentHealth());
+//        System.out.println(player.getLevel());
+//        System.out.println(player.getExperience());
+//        System.out.println(player.getWeapon().getName());
+//        System.out.println(player.getGold());
     }
     
 }
