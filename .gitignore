@@ -28,3 +28,14 @@ replay_pid*
 
 # Ignore Gradle build output directory
 build
+
+### Eclipse ###
+
+### Eclipse Patch ###
+# Eclipse Core		
+.project
+
+# JDT-specific (Eclipse Java Development Tools)		
+.classpath
+
+.settings

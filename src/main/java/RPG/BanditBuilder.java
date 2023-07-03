@@ -6,7 +6,8 @@ public class BanditBuilder extends CharacterBuilder {
     
     @Override
     protected void setMaxHealth() {
-        int health = RandomNumberGenerator.getRandomIntRange(Game.getCurrentFloor(), Game.getCurrentFloor() * 2);
+        RandomNumberGenerator random = RandomNumberGenerator.getInstance();
+        int health = random.getRandomIntRange(Game.getCurrentFloor(), Game.getCurrentFloor() * 2);
         if (Game.getCurrentFloor() % 10 == 5) {
             health = health * 2;
         } else if (Game.getCurrentFloor() % 10 == 0) {

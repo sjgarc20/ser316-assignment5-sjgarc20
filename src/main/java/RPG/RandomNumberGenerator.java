@@ -14,6 +14,9 @@ public final class RandomNumberGenerator {
     private static RandomNumberGenerator INSTANCE;
     private static Random generator;
     
+    private RandomNumberGenerator() {
+        generator = new Random(SEED);
+    }
     /**
      * Checks if instance already exists, and creates a new instance.
      * if it doesn't
@@ -22,7 +25,6 @@ public final class RandomNumberGenerator {
     public static RandomNumberGenerator getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new RandomNumberGenerator();
-            generator = new Random(SEED);
         }
         
         return INSTANCE;
@@ -32,7 +34,7 @@ public final class RandomNumberGenerator {
         return generator.nextDouble();
     }
     
-    public static int getRandomIntRange(int lowerBound, int upperBound) {
+    public int getRandomIntRange(int lowerBound, int upperBound) {
         return generator.nextInt(upperBound - lowerBound + 1) + lowerBound;
     }
 }
