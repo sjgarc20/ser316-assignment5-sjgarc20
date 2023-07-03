@@ -20,7 +20,7 @@ public class Weapon {
      * @return total weapon damage
      */
     public int getTotalWeaponDamage() {
-        int totalDamage = baseDamage * level;
+        int totalDamage = baseDamage * (level + 1);
         totalDamage = (int) (totalDamage * damageMultiplier);
         return totalDamage;
     }
@@ -34,7 +34,7 @@ public class Weapon {
      * @return total weapon speed
      */
     public int getTotalWeaponSpeed() {
-        int totalSpeed = baseSpeed * level;
+        int totalSpeed = baseSpeed * (level + 1);
         totalSpeed = (int) (totalSpeed * speedMultiplier);
         return totalSpeed;
     }

@@ -6,13 +6,15 @@ public class UndeadBuilder extends CharacterBuilder {
     
     @Override
     protected void setMaxHealth() {
-        int health = RandomNumberGenerator.getRandomIntRange(Game.getCurrentFloor(), (int) (Game.getCurrentFloor() * 1.5));
+        RandomNumberGenerator random = RandomNumberGenerator.getInstance();
+        int health = random.getRandomIntRange(Game.getCurrentFloor(), (int) (Game.getCurrentFloor() * 1.5));
         if (Game.getCurrentFloor() % 10 == 5) {
             health = health * 3;
         } else if (Game.getCurrentFloor() % 10 == 0) {
             health = health * 10;
         }
         undead.setMaxHealth(health);
+        undead.setCurrentHealth(health);
     }
 
     @Override
@@ -39,10 +41,13 @@ public class UndeadBuilder extends CharacterBuilder {
     protected void setSpecialTraits() {
         if (Game.getCurrentFloor() % 10 == 5) {
             undead.setExperience(Game.getCurrentFloor() * 100);
+            undead.setName("Skeleton Commander");
         } else if (Game.getCurrentFloor() % 10 == 0) {
             undead.setExperience(Game.getCurrentFloor() * 200);
+            undead.setName("Necromancer");
         } else {
             undead.setExperience(Game.getCurrentFloor() * 50);
+            undead.setName("Zombie");
         }
     }
     

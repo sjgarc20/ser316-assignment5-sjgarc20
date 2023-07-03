@@ -6,13 +6,15 @@ public class MonsterBuilder extends CharacterBuilder {
     
     @Override
     protected void setMaxHealth() {
-        int health = RandomNumberGenerator.getRandomIntRange(Game.getCurrentFloor() * 2, Game.getCurrentFloor() * 3);
+        RandomNumberGenerator random = RandomNumberGenerator.getInstance();
+        int health = random.getRandomIntRange(Game.getCurrentFloor() * 2, Game.getCurrentFloor() * 3);
         if (Game.getCurrentFloor() % 10 == 5) {
             health = health * 2;
         } else if (Game.getCurrentFloor() % 10 == 0) {
             health = health * 3;
         }
         monster.setMaxHealth(health);
+        monster.setCurrentHealth(health);
     }
 
     @Override
@@ -39,10 +41,13 @@ public class MonsterBuilder extends CharacterBuilder {
     protected void setSpecialTraits() {
         if (Game.getCurrentFloor() % 10 == 5) {
             monster.setExperience(Game.getCurrentFloor() * 100);
+            monster.setName("Minotaur");
         } else if (Game.getCurrentFloor() % 10 == 0) {
             monster.setExperience(Game.getCurrentFloor() * 200);
+            monster.setName("Gelatinous Mass");
         } else {
             monster.setExperience(Game.getCurrentFloor() * 50);
+            monster.setName("Orc");
         }
     }
     

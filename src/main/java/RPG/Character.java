@@ -8,6 +8,7 @@ public class Character {
     private Armor armor;
     private int experience;
     private int gold;
+    private String name;
     
     public int getMaxHealth() {
         return maxHealth;
@@ -41,6 +42,9 @@ public class Character {
         int experienceToLevelUp = (level + 1) * 100;
         if (experience >= experienceToLevelUp) {
             experience -= experienceToLevelUp;
+            this.level += 1;
+            this.maxHealth = level * 5 + 10;
+            this.currentHealth = this.maxHealth;
             return true;
         }
         return false;
@@ -84,6 +88,14 @@ public class Character {
     
     public void addGold(int gold) {
         this.gold = this.gold + gold;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
 }

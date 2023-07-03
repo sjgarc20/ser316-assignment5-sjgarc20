@@ -139,13 +139,16 @@ public final class Logic {
                 if (playerTick >= enemyTick) {
                     // player attacks enemy
                     attackCharacter(player, enemy);
+                    playerTick -= maxTick;
                 } else {
                     // enemy attacks player
                     attackCharacter(enemy, player);
+                    enemyTick -= maxTick;
                 }
             } else if (enemyTick >= maxTick) {
                 // enemy attacks player
                 attackCharacter(enemy, player);
+                enemyTick -= maxTick;
             } else {
                 playerTick += player.getWeapon().getTotalWeaponSpeed();
                 enemyTick += enemy.getWeapon().getTotalWeaponSpeed();
@@ -153,11 +156,16 @@ public final class Logic {
         }
         
         if (player.getCurrentHealth() > 0) {
+            System.out.println("You beat level " + enemy.getLevel() + " " + enemy.getName());
+            System.out.println("Gained " + enemy.getExperience() + " experience");
             player.addExperience(enemy.getExperience());
             Game.advanceFloor();
         } else {
+            System.out.println("You were defeated by level "  + enemy.getLevel() + " " + enemy.getName());
+            System.out.println("You lost " + player.getGold() + " Gold");
             Game.setCurrentFloor(0);
             player.setGold(0);
+            player.setCurrentHealth(player.getMaxHealth());
         }
     }
     

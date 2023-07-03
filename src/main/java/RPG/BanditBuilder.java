@@ -14,6 +14,7 @@ public class BanditBuilder extends CharacterBuilder {
             health = health * 3;
         }
         bandit.setMaxHealth(health);
+        bandit.setCurrentHealth(health);
     }
 
     @Override
@@ -39,10 +40,13 @@ public class BanditBuilder extends CharacterBuilder {
     protected void setSpecialTraits() {
         if (Game.getCurrentFloor() % 10 == 5) {
             bandit.setExperience(Game.getCurrentFloor() * 100);
+            bandit.setName("Assassin Bandit");
         } else if (Game.getCurrentFloor() % 10 == 0) {
             bandit.setExperience(Game.getCurrentFloor() * 200);
+            bandit.setName("Bandit King");
         } else {
             bandit.setExperience(Game.getCurrentFloor() * 50);
+            bandit.setName("Bandit");
         }
     }
 
