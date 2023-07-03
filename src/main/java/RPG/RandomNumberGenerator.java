@@ -27,4 +27,7 @@ public final class RandomNumberGenerator {
         return generator.nextDouble();
     }
     
+    public static int getRandomIntRange(int lowerBound, int upperBound) {
+        return generator.nextInt(upperBound - lowerBound + 1) + lowerBound;
+    }
 }
