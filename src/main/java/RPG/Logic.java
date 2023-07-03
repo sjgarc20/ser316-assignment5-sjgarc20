@@ -82,7 +82,8 @@ public final class Logic {
                 System.out.println("3: Enter the dungeon!");
                 System.out.println("Type the number of your selection, then press Enter");
                 try {
-                    int input = UserInput.getSelection();
+                    UserInput userInput = UserInput.getInstance();
+                    int input = userInput.getSelection();
                     if (input == 1) {
                         goToShop();
                     } else if (input == 2) {
@@ -106,6 +107,7 @@ public final class Logic {
             }
         }
         winningSequence();
+        return;
     }
     
     /**
@@ -121,7 +123,8 @@ public final class Logic {
         System.out.println("3: Continue your adventure");
         
         try {
-            int input = UserInput.getSelection();
+            UserInput userInput = UserInput.getInstance();
+            int input = userInput.getSelection();
             if (input == 1) {
                 reforgeWeapon();
                 goToShop();
@@ -213,7 +216,8 @@ public final class Logic {
         
         int weaponLevel = player.getWeapon().getLevel();
         try {
-            int input = UserInput.getSelection();
+            UserInput userInput = UserInput.getInstance();
+            int input = userInput.getSelection();
             WeaponDirector weaponDirector = new WeaponDirector();
             if (input == 1) {
                 WeaponBuilder swordBuilder = new SwordBuilder();

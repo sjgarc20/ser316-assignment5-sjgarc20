@@ -29,7 +29,8 @@ public class PlayerBuilder extends CharacterBuilder {
         System.out.println("Please input the number of the weapon you would like to choose.");
         
         try {
-            int input = UserInput.getSelection();
+            UserInput userInput = UserInput.getInstance();
+            int input = userInput.getSelection();
             WeaponDirector weaponDirector = new WeaponDirector();
             if (input == 1) {
                 WeaponBuilder swordBuilder = new SwordBuilder();
