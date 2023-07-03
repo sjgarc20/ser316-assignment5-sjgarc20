@@ -16,7 +16,15 @@ plugins {
 apply plugin: 'application'
 apply plugin: 'jacoco'
 
-mainClassName = 'main.java.RPG.Library' // TODO: change to actual main class later
+//sourceSets.main.java.srcDirs = ['src.main.java.rpg']
+/*
+jar {
+    manifest {
+        attributes 'Main-Class': 'main.java.rpg.Main'
+    }
+}*/
+
+mainClassName = 'main.java.RPG.Main' // TODO: change to actual main class later
 
 repositories {
     // Use jcenter for resolving dependencies.

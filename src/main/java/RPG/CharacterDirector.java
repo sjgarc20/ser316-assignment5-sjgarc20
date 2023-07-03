@@ -1,4 +1,4 @@
-package rpg;
+package RPG;
 
 /**
  * Part of the Builder design pattern. 

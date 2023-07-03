@@ -1,4 +1,4 @@
-package rpg;
+package RPG;
 
 public abstract class CharacterBuilder {
     

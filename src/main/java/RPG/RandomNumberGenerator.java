@@ -1,4 +1,4 @@
-package rpg;
+package RPG;
 
 import java.util.Random;
 
